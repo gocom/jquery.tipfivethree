@@ -28,13 +28,13 @@
  * A tooltip plugin for jQuery. Uses CSS3
  * animations and is fully styleable.
  *
- * @param    {Object} options
- * @param    {String} options.template Callback or a template string, e.g. '{href}'
- * @param    {String} options.position Default position, either 'top', 'bottom', 'left', 'right'
- * @return   {Object} this
- * @author   Jukka Svahn
- * @package  jQuery.tipFiveThree
- * @lincense MIT
+ * @param   {Object} options
+ * @param   {String} options.template Callback or a template string, e.g. '{href}'
+ * @param   {String} options.position Default position, either 'top', 'bottom', 'left', 'right'
+ * @return  {Object} this
+ * @author  Jukka Svahn
+ * @package jQuery.tipFiveThree
+ * @license MIT
  */
 
 (function ($) {
