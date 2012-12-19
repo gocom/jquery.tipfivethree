@@ -1,0 +1,197 @@
+/**
+ * Tooltip
+ */
+
+.tipFiveThree {
+	background: #1f2a30;
+	background: rgba(31, 42, 48, 0.95);
+
+	background: -moz-linear-gradient(
+		top,
+		rgba(31, 42, 48, 0.8) 10%,
+		#1f2a30 80%
+	);
+
+	background: -webkit-linear-gradient(
+		top,
+		rgba(31, 42, 48, 0.8) 10%,
+		#1f2a30 80%
+	);
+
+	background: -webkit-gradient(
+		linear,
+		left top, left bottom,
+		color-stop(0.10, rgba(31, 42, 48, 0.8)),
+		color-stop(0.80, #1f2a30)
+	);
+
+	background: -o-linear-gradient(
+		top,
+		rgba(31, 42, 48, 0.8) 10%,
+		#1f2a30 80%
+	);
+
+	background: -ms-linear-gradient(
+		top,
+		rgba(31, 42, 48, 0.8) 10%,
+		#1f2a30 80%
+	);
+
+	background: linear-gradient(
+		top,
+		rgba(31, 42, 48, 0.8) 10%,
+		#1f2a30 80%
+	);
+
+	color: #f8fbfe;
+	/*font-size: 0.95em;*/
+	padding: 1px 6px;
+	max-width: 460px;
+
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+
+	-moz-box-shadow:
+		0 1px 3px rgba(0,0,0,0.5),
+		0 0 1px rgba(0,0,0,0.2),
+		inset 0 1px 0 rgba(255, 255, 255, 0.2);
+
+	-webkit-box-shadow:
+		0 1px 3px rgba(0,0,0,0.5),
+		0 0 1px rgba(0,0,0,0.2),
+		inset 0 1px 0 rgba(255, 255, 255, 0.2);
+
+	box-shadow:
+		0 1px 3px rgba(0,0,0,0.5),
+		0 0 1px rgba(0,0,0,0.2),
+		inset 0 1px 0 rgba(255,255,255,0.2);
+
+	border: 1px solid #000;
+	border-color: rgba(0,0,0,0.8);
+	border-radius: 3px;
+
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+/**
+ * Opening animation
+ */
+
+.tipFiveThree-spawn {
+	opacity: 0;
+	-webkit-transform: scale(0.2, 0.2) skewX(10deg);
+	transform: scale(0.2, 0.2) skewX(10deg);
+}
+
+.tipFiveThree-open {
+	-webkit-transition: all 0.5s ease-in-out;
+	transition: all 0.5s ease-in-out;
+	opacity: 1;
+	-webkit-transform: scale(1, 1) skewX(0deg);
+	transform: scale(1, 1) skewX(0deg);
+}
+
+/**
+ * Arrows
+ */
+
+.tipFiveThree:after,
+.tipFiveThree:before {
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.tipFiveThree:after {
+	border-color: rgba(31, 42, 48, 0);
+	border-width: 9px;
+}
+
+.tipFiveThree:before {
+	border-color: rgba(0, 0, 0, 0);
+	border-width: 10px;
+}
+
+/**
+ * Arrow on bottom
+ */
+
+.tipFiveThree-top:after,
+.tipFiveThree-top:before {
+	top: 100%;
+	left: 50%;
+}
+
+.tipFiveThree-top:after {
+	border-top-color: #1f2a30;
+	margin-left: -9px;
+}
+
+.tipFiveThree-top:before {
+	border-top-color: #000;
+	margin-left: -10px;
+}
+
+/**
+ * Arrow on top
+ */
+
+.tipFiveThree-bottom:after,
+.tipFiveThree-bottom:before {
+	bottom: 100%;
+	left: 50%;
+}
+
+.tipFiveThree-bottom:after {
+	border-bottom-color: #1f2a30;
+	margin-left: -9px;
+}
+
+.tipFiveThree-bottom:before {
+	border-bottom-color: #000;
+	margin-left: -10px;
+}
+
+/**
+ * Arrow on right
+ */
+
+.tipFiveThree-left:after,
+.tipFiveThree-left:before {
+	left: 100%;
+	top: 50%;
+}
+
+.tipFiveThree-left:after {
+	border-left-color: #1f2a30;
+	margin-top: -9px;
+}
+
+.tipFiveThree-left:before {
+	border-left-color: #000;
+	margin-top: -10px;
+}
+
+/**
+ * Arrow on left
+ */
+
+.tipFiveThree-right:after,
+.tipFiveThree-right:before {
+	right: 100%;
+	top: 50%;
+}
+
+.tipFiveThree-right:after {
+	border-right-color: #1f2a30;
+	margin-top: -9px;
+}
+
+.tipFiveThree-right:before {
+	border-right-color: #000;
+	margin-top: -10px;
+}
