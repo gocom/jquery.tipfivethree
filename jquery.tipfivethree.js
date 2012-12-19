@@ -23,7 +23,7 @@
  */
 
 /**
- * jQuery.tipFiveThree
+ * jquery.tipFiveThree
  *
  * A tooltip plugin for jQuery. Uses CSS3
  * animations and is fully styleable.

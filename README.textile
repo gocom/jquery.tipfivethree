@@ -1,4 +1,4 @@
-h1. jQuery.tipFiveThree
+h1. jquery.tipFiveThree
 
 p. CSS3 powered jQuery tooltips plugin.
 
