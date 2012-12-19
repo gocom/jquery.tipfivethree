@@ -1,6 +1,6 @@
 /*!
  * jquery.tipFiveThree - CSS3 powered tooltips
- * https://github.com/gocom/tipfivethree
+ * https://github.com/gocom/jquery.tipfivethree
  *
  * Copyright (C) 2012 Jukka Svahn
  *
