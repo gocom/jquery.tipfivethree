@@ -23,6 +23,11 @@
  */
 
 /**
+ * @preserve jquery.tipFiveThree | Copyright (C) 2012 Jukka Svahn | http://uproar-n-rattle.biz
+ * Released under the MIT License
+ */
+
+/**
  * jquery.tipFiveThree
  *
  * A tooltip plugin for jQuery. Uses CSS3
@@ -34,7 +39,6 @@
  * @return  {Object} this
  * @author  Jukka Svahn
  * @package jQuery.tipFiveThree
- * @license MIT
  */
 
 (function ($) {
