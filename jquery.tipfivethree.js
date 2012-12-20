@@ -96,6 +96,7 @@
 						'z-index'   : '9999'
 					})
 					.addClass(options.class)
+					.addClass('tipFiveThree-parent-' + $this.attr('id'))
 					.hide();
 
 				$('body').append(tooltip);
