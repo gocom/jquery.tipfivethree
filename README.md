@@ -34,6 +34,11 @@ $('[title]').tipFiveThree();
 Changelog
 -------------
 
+### Version 0.3.0 - 2012/12/20
+
+* Fixed: Centering and positioning calculations.
+* Added: Automatic side, direction and position changing.
+
 ### Version 0.2.0 - 2012/12/20
 
 * Fixed: Removes created data properties from documented correctly.
