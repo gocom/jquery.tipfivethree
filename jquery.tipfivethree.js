@@ -88,7 +88,7 @@
 
 			methods.show = function()
 			{
-				$this.data('TipFiveThree-title', $this.attr('title')).removeAttr('title');
+				$this.data('tipFiveThree-title', $this.attr('title')).removeAttr('title');
 
 				tooltip = $('<div class="tipFiveThree" />')
 					.css({
@@ -152,7 +152,7 @@
 				tooltip.remove();
 				$this
 					.attr('title', $this.data('tipFiveThree-title'))
-					.removeAttr('data-TipFiveThree-title');
+					.removeAttr('data-tipFiveThree-title');
 			};
 
 			if (method && methods[method])
