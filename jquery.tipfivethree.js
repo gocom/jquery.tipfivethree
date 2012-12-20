@@ -156,7 +156,7 @@
 					.removeAttr('data-tipFiveThree-title');
 			};
 
-			if (method && methods[method])
+			if (method && $.type(methods[method]) !== 'undefined')
 			{
 				methods[method].call($this);
 				return;
