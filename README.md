@@ -34,6 +34,17 @@ $('[title]').tipFiveThree();
 Changelog
 -------------
 
+### Version 0.2.0 - 2012/12/20
+
+* Fixed: Removes created data properties from documented correctly.
+* Fixed: Prevent template tag injection through attributes.
+* Fixed: Issue with text-rendering and cursor flicker on Safari.
+* Added: Option to apply a custom class with ```class``` option.
+* Added: Ability to target tooltips based on the parent's ID.
+* Added: License headers to source files.
+* Added: Some instructions to the readme.
+* Changed: Uses as much ems units as possible instead of pixels.
+
 ### Version 0.1.0 - 2012/12/19
 
 * Initial publicly published pre-beta tag. Still missing stuff like crazy.
