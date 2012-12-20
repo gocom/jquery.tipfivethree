@@ -66,7 +66,10 @@
 
 				$.each($this[0].attributes, function(index, attr)
 				{
-					template = template.replace('{'+attr.name+'}', $('<div/>').text(attr.value).html());
+					template = template.replace(
+						'{'+attr.name+'}',
+						$('<div/>').text(attr.value).html().replace('{', '&#123;')
+					);
 				});
 			}
 			else
