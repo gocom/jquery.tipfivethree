@@ -36,6 +36,7 @@
  * @param   {Object} options
  * @param   {String} options.template Callback or a template string, e.g. '{href}'
  * @param   {String} options.position Default position, either 'top', 'bottom', 'left', 'right'
+ * @param   {String} options.class    Applies a custom class to the tooltip, e.g. 'my-custom-class'
  * @return  {Object} this
  * @author  Jukka Svahn
  * @package jQuery.tipFiveThree
