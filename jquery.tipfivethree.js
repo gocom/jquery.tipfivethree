@@ -108,21 +108,74 @@
 						'max-width' : Math.min($(window).width(), parseInt(tooltip.css('max-width'), 10))
 					});
 
-				var offset = $this.offset();
-				var thisWidth = $this.outerWidth();
-				var tipWidth = tooltip.outerWidth();
-				var tipHeight = tooltip.outerHeight();
+				var c =
+				{
+					tip    : { width : tooltip.outerWidth(), height : tooltip.outerHeight() },
+					offset : $this.offset(),
+					target : { width : $this.outerWidth(), height : $this.outerHeight() }
+				};
 
-				var xTip = offset.left + (thisWidth/2) - (tipWidth/2);
-				var yTip = (offset.top-tipHeight-10);
+				var positioning =
+				{
+					top : {
+						x : c.offset.left + (c.target.width/2) - (c.tip.width/2),
+						y : c.offset.top - c.tip.height - 10
+					},
+					bottom : {
+						x : c.offset.left + (c.target.width/2) - (c.tip.width/2),
+						y : c.offset.top + c.target.height + 10
+					},
+					left : {
+						x : c.offset.left - c.tip.width - 10,
+						y : c.offset.top + (c.target.height/2) - (c.tip.height/2)
+					},
+					right : {
+						x : c.offset.left + c.target.width + c.tip.width + 10,
+						y : c.offset.top + (c.target.height/2) - (c.tip.height/2)
+					}
+				};
+
+				var requires = 
+				{
+					top    : c.tip.height + 10,
+					bottom : c.tip.height + 10,
+					left   : c.tip.width + 10,
+					right  : c.tip.width + 10
+				};
+
+				var space =
+				{
+					top    : c.offset.top,
+					bottom : $(window).outerHeight() - (c.target.height + c.offset.top),
+					left   : c.offset.left,
+					right  : $(window).outerWidth() - (c.target.width + c.offset.left)
+				};
+
+				var position = options.position;
+
+				if ($.type(space[position]) === 'undefined' || space[position] < requires[position])
+				{
+					$.each(space, function (name, value)
+					{
+						if (value >= space[position])
+						{
+							position = name;
+						}
+
+						if (value >= requires[name])
+						{
+							return;
+						}
+					});
+				}
 
 				tooltip
 					.css({
-						'top'  : yTip+'px',
-						'left' : xTip+'px'
+						'top'  : positioning[position].y + 'px',
+						'left' : positioning[position].x + 'px'
 					})
 					.show()
-					.addClass('tipFiveThree-top tipFiveThree-spawn');
+					.addClass('tipFiveThree-'+position+' tipFiveThree-spawn');
 
 				tooltip.delay = setInterval(function ()
 				{
