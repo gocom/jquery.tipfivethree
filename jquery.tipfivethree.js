@@ -52,7 +52,8 @@
 
 		options = $.extend({
 			'template' : '{title}',
-			'position' : 'top'
+			'position' : 'top',
+			'class'    : ''
 		}, options);
 
 		return this.each(function ()
@@ -91,6 +92,7 @@
 						'position'  : 'absolute',
 						'z-index'   : '9999'
 					})
+					.addClass(options.class)
 					.hide();
 
 				$('body').append(tooltip);
