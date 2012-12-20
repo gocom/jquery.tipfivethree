@@ -100,7 +100,6 @@
 	-webkit-animation: tipFiveThree-opening 0.5s;
 	transition: opacity 0.5s ease-in-out;
 	-webkit-transition: opacity 0.5s ease-in-out;
-	animation-fill-mode: forwards;
 	-webkit-animation-fill-mode: forwards;
 }
 
