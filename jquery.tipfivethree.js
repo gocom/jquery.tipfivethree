@@ -109,23 +109,11 @@
 					});
 
 				var offset = $this.offset();
-				var thisWidth = $this.width();
-				var tipWidth = tooltip.width();
-				var tipHeight = tooltip.height();
+				var thisWidth = $this.outerWidth();
+				var tipWidth = tooltip.outerWidth();
+				var tipHeight = tooltip.outerHeight();
 
-				if (thisWidth == tipWidth)
-				{
-					var xTip = 0;
-				}
-				else if(thisWidth > tipWidth)
-				{
-					var xTip = (offset.left+((thisWidth-tipWidth)/2));
-				}
-				else
-				{
-					var xTip = (offset.left-((tipWidth-thisWidth)/2));
-				}
-
+				var xTip = offset.left + (thisWidth/2) - (tipWidth/2);
 				var yTip = (offset.top-tipHeight-10);
 
 				tooltip
