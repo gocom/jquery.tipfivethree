@@ -179,9 +179,8 @@
 							'left' : positioning[position].x + 'px'
 						})
 						.show()
-						.addClass('tipFiveThree-'+position);
-
-					tooltip.addClass('tipFiveThree-ready');
+						.addClass('tipFiveThree-'+position)
+						.addClass('tipFiveThree-ready');
 				}, 100);
 
 				return this;
