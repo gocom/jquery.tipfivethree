@@ -111,79 +111,86 @@
 				tooltip.delay = setInterval(function ()
 				{
 					clearInterval(tooltip.delay);
-
-					var c =
-					{
-						tip    : { width : tooltip.outerWidth(), height : tooltip.outerHeight() },
-						offset : $this.offset(),
-						target : { width : $this.outerWidth(), height : $this.outerHeight() }
-					};
-
-					var positioning =
-					{
-						top : {
-							x : c.offset.left + (c.target.width/2) - (c.tip.width/2),
-							y : c.offset.top - c.tip.height - 10
-						},
-						bottom : {
-							x : c.offset.left + (c.target.width/2) - (c.tip.width/2),
-							y : c.offset.top + c.target.height + 10
-						},
-						left : {
-							x : c.offset.left - c.tip.width - 10,
-							y : c.offset.top + (c.target.height/2) - (c.tip.height/2)
-						},
-						right : {
-							x : c.offset.left + c.target.width + c.tip.width + 10,
-							y : c.offset.top + (c.target.height/2) - (c.tip.height/2)
-						}
-					};
-
-					var requires = 
-					{
-						top    : c.tip.height + 10,
-						bottom : c.tip.height + 10,
-						left   : c.tip.width + 10,
-						right  : c.tip.width + 10
-					};
-
-					var space =
-					{
-						top    : c.offset.top,
-						bottom : $(document).outerHeight() - (c.target.height + c.offset.top),
-						left   : c.offset.left,
-						right  : $(document).outerWidth() - (c.target.width + c.offset.left)
-					};
-
-					var position = options.position;
-
-					if ($.type(space[position]) === 'undefined' || space[position] < requires[position])
-					{
-						$.each(space, function (name, value)
-						{
-							if (value >= space[position])
-							{
-								position = name;
-							}
-
-							if (value >= requires[name])
-							{
-								return;
-							}
-						});
-					}
-
-					tooltip
-						.css({
-							'top'  : positioning[position].y + 'px',
-							'left' : positioning[position].x + 'px'
-						})
-						.show()
-						.addClass('tipFiveThree-'+position)
-						.addClass('tipFiveThree-ready');
+					methods.position.call(this);
+					tooltip.show().addClass('tipFiveThree-ready');
 				}, 100);
 
 				return this;
+			};
+
+			/**
+			 * Position tooltip.
+			 */
+
+			methods.position = function ()
+			{
+				var c =
+				{
+					tip    : { width : tooltip.outerWidth(), height : tooltip.outerHeight() },
+					offset : $this.offset(),
+					target : { width : $this.outerWidth(), height : $this.outerHeight() }
+				};
+
+				var positioning =
+				{
+					top : {
+						x : c.offset.left + (c.target.width/2) - (c.tip.width/2),
+						y : c.offset.top - c.tip.height - 10
+					},
+					bottom : {
+						x : c.offset.left + (c.target.width/2) - (c.tip.width/2),
+						y : c.offset.top + c.target.height + 10
+					},
+					left : {
+						x : c.offset.left - c.tip.width - 10,
+						y : c.offset.top + (c.target.height/2) - (c.tip.height/2)
+					},
+					right : {
+						x : c.offset.left + c.target.width + c.tip.width + 10,
+						y : c.offset.top + (c.target.height/2) - (c.tip.height/2)
+					}
+				};
+
+				var requires = 
+				{
+					top    : c.tip.height + 10,
+					bottom : c.tip.height + 10,
+					left   : c.tip.width + 10,
+					right  : c.tip.width + 10
+				};
+
+				var space =
+				{
+					top    : c.offset.top,
+					bottom : $(document).outerHeight() - (c.target.height + c.offset.top),
+					left   : c.offset.left,
+					right  : $(document).outerWidth() - (c.target.width + c.offset.left)
+				};
+
+				var position = options.position;
+
+				if ($.type(space[position]) === 'undefined' || space[position] < requires[position])
+				{
+					$.each(space, function (name, value)
+					{
+						if (value >= space[position])
+						{
+							position = name;
+						}
+
+						if (value >= requires[name])
+						{
+							return;
+						}
+					});
+				}
+
+				tooltip
+					.css({
+						'top'  : positioning[position].y + 'px',
+						'left' : positioning[position].x + 'px'
+					})
+					.addClass('tipFiveThree-'+position);
 			};
 
 			/**
