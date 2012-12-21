@@ -180,7 +180,7 @@
 				tooltip.delay = setInterval(function ()
 				{
 					clearInterval(tooltip.delay);
-					tooltip.addClass('tipFiveThree-open');
+					tooltip.addClass('tipFiveThree-ready');
 				}, 100);
 			};
 
