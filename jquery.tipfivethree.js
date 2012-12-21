@@ -146,9 +146,9 @@
 				var space =
 				{
 					top    : c.offset.top,
-					bottom : $(window).outerHeight() - (c.target.height + c.offset.top),
+					bottom : $(document).outerHeight() - (c.target.height + c.offset.top),
 					left   : c.offset.left,
-					right  : $(window).outerWidth() - (c.target.width + c.offset.left)
+					right  : $(document).outerWidth() - (c.target.width + c.offset.left)
 				};
 
 				var position = options.position;
