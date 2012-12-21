@@ -203,16 +203,16 @@
 
 			if (method && $.type(methods[method]) !== 'undefined')
 			{
-				return methods[method].call($this);
+				return methods[method].call(this);
 			}
 
 			$this.on('mouseenter.tipFiveThree', function ()
 			{
-				methods.show();
+				methods.show.call(this);
 			})
 			.on('mouseleave.tipFiveThree', function ()
 			{
-				methods.hide();
+				methods.hide.call(this);
 			});
 		});
 	};
