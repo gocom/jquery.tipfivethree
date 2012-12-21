@@ -208,6 +208,15 @@
 				return this;
 			};
 
+			/**
+			 * Re-position on window resize.
+			 */
+
+			$(window).resize(function ()
+			{
+				methods.position.call(this);
+			});
+
 			if (method && $.type(methods[method]) !== 'undefined')
 			{
 				return methods[method].call(this);
