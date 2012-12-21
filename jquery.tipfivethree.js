@@ -182,6 +182,8 @@
 					clearInterval(tooltip.delay);
 					tooltip.addClass('tipFiveThree-ready');
 				}, 100);
+
+				return this;
 			};
 
 			/**
@@ -195,12 +197,13 @@
 				$this
 					.attr('title', $this.data('tipFiveThree-title'))
 					.removeAttr('data-tipFiveThree-title');
+
+				return this;
 			};
 
 			if (method && $.type(methods[method]) !== 'undefined')
 			{
-				methods[method].call($this);
-				return;
+				return methods[method].call($this);
 			}
 
 			$this.on('mouseenter.tipFiveThree', function ()
