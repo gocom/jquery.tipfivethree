@@ -175,7 +175,7 @@
 						'left' : positioning[position].x + 'px'
 					})
 					.show()
-					.addClass('tipFiveThree-'+position+' tipFiveThree-spawn');
+					.addClass('tipFiveThree-'+position);
 
 				tooltip.delay = setInterval(function ()
 				{
