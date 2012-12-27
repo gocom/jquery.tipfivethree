@@ -51,37 +51,58 @@
 			method = false;
 		}
 
-		options = $.extend({
+		options = $.extend(this.options || {
 			'template' : '{title}',
 			'position' : 'top',
 			'class'    : ''
 		}, options);
 
+		this.options = options;
+
 		return this.each(function ()
 		{
 			var $this = $(this), methods = {}, tooltip;
 
-			if ($.type(options.template) === 'string')
-			{
-				var template = options.template;
+			/**
+			 * Creates a new tooltip.
+			 */
 
-				$.each($this[0].attributes, function(index, attr)
+			methods.create = function()
+			{
+				if ($.type(options.template) === 'string')
 				{
-					template = template.replace(
-						'{'+attr.name+'}',
-						$('<div/>').text(attr.value).html().replace('{', '&#123;')
-					);
-				});
-			}
-			else
-			{
-				var template = options.template.call($this);
-			}
+					var template = options.template;
 
-			if (template === '' || template === false || $.type(template) === 'undefined')
-			{
-				return;
-			}
+					$.each($this[0].attributes, function(index, attr)
+					{
+						template = template.replace(
+							'{'+attr.name+'}',
+							$('<div/>').text(attr.value).html().replace('{', '&#123;')
+						);
+					});
+				}
+				else
+				{
+					var template = options.template.call($this);
+				}
+
+				if (template === '' || template === false || $.type(template) === 'undefined')
+				{
+					return;
+				}
+
+				tooltip = $('<div class="tipFiveThree" />')
+					.css({
+						'position'  : 'absolute',
+						'z-index'   : '9999'
+					})
+					.html(template)
+					.addClass(options.class)
+					.addClass('tipFiveThree-parent-' + $this.attr('id'))
+					.hide();
+
+				this.tooltip = tooltip;
+			};
 
 			/**
 			 * Displays the tooltip.
@@ -89,29 +110,30 @@
 
 			methods.show = function()
 			{
+				if ($.type(this.tooltip) !== 'undefined')
+				{
+					tooltip = this.tooltip;
+					console.log('defined');
+				}
+				else
+				{
+					methods.create.call(this);
+				}
+
 				$this.data('tipFiveThree-title', $this.attr('title')).removeAttr('title');
-
-				tooltip = $('<div class="tipFiveThree" />')
-					.css({
-						'position'  : 'absolute',
-						'z-index'   : '9999'
-					})
-					.addClass(options.class)
-					.addClass('tipFiveThree-parent-' + $this.attr('id'))
-					.hide();
-
 				$('body').append(tooltip);
 
 				tooltip
-					.html(template)
 					.css({
 						'max-width' : Math.min($(window).width(), parseInt(tooltip.css('max-width'), 10))
 					});
 
+				var parent = this;
+
 				tooltip.delay = setInterval(function ()
 				{
 					clearInterval(tooltip.delay);
-					methods.position.call(this);
+					methods.position.call(parent);
 					tooltip.show().addClass('tipFiveThree-ready');
 				}, 100);
 
@@ -124,6 +146,8 @@
 
 			methods.position = function ()
 			{
+				tooltip = this.tooltip;
+
 				var c =
 				{
 					tip    : { width : tooltip.outerWidth(), height : tooltip.outerHeight() },
@@ -199,6 +223,7 @@
 
 			methods.hide = function()
 			{
+				tooltip = this.tooltip;
 				clearInterval(tooltip.delay);
 				tooltip.remove();
 				$this
