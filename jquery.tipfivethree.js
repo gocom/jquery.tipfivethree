@@ -113,7 +113,6 @@
 				if ($.type(this.tooltip) !== 'undefined')
 				{
 					tooltip = this.tooltip;
-					console.log('defined');
 				}
 				else
 				{
